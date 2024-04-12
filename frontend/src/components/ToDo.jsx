@@ -6,7 +6,8 @@ import { baseURL } from "../utils/constant";
 
 const ToDo = ({ title, desc, id, setUpdateUI, setShowPopup, setPopupContent }) => {
   const deleteTodo = () => {
-    axios.delete(`${baseURL}/delete/${id}`).then((res) => {
+    const jwt = localStorage.getItem('jwt');
+    axios.delete(`${baseURL}/delete/${id}`,{headers:{'Authorization': `Bearer ${jwt}`}}).then((res) => {
       console.log(res.data);
       setUpdateUI((prevState) => !prevState);
     });

@@ -8,8 +8,9 @@ const Popup = ({ setShowPopup, popupContent, setUpdateUI }) => {
   const [input_desc, setInput_desc] = useState(popupContent.desc);
 
   const updateToDo = () => {
+    const jwt = localStorage.getItem('jwt');
     axios
-      .put(`${baseURL}/update/${popupContent.id}`, { title: input_title, description: input_desc })
+      .put(`${baseURL}/update/${popupContent.id}`, { title: input_title, description: input_desc },{headers:{'Authorization': `Bearer ${jwt}`}})
       .then((res) => {
         console.log(res.data);
         setUpdateUI((prevState) => !prevState);
