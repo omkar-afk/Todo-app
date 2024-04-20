@@ -1,3 +1,3 @@
 ##Todo APP
 
-Live deployed on - https://todo-app-frontend-pi.vercel.app/
+Deployed live on - https://todo-app-frontend-blue.vercel.app/
